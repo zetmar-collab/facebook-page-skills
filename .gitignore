@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.docx
+# never commit your own state
+facebook-state/
+voice.md
+config.md
+log.md
+plan.md
+audit.md

@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "note": "English AI-tell lexicon. 'hard' entries FAIL the lint, 'soft' entries only WARN when several appear. Patterns are regexes matched against lower-cased text. Edit freely: if a word is genuinely yours, remove it. Background: the Wikipedia guide 'Signs of AI writing' documents these patterns; a single hit proves nothing, density does.",
+  "greeting": "^(hi|hello|hey|hey there|good morning|greetings)\\b",
+  "asks": [
+    "comment (below|and tell)", "let me know", "leave a comment", "save this post", "share (this|it)",
+    "click", "check out", "follow (me|for)", "like (this|and)", "link in (the )?comments?",
+    "dm me", "message me", "sign up", "tag (a|someone|your)", "subscribe"
+  ],
+  "chat_remnants": [
+    "i hope this helps", "^\\s*certainly[!,.]", "^\\s*of course[!,.]", "you'?re absolutely right",
+    "would you like me to", "feel free to ask", "here'?s a (more )?(detailed|ready|revised)", "as an ai\\b", "happy to help"
+  ],
+  "structure": [
+    {"name": "negative parallelism", "re": "\\bnot (just|only|merely)\\b[^.!?\\n]{0,80}\\bbut\\b|\\bit'?s not\\b[^.!?\\n,]{0,50},\\s*it'?s\\b|\\bisn'?t just\\b"},
+    {"name": "one-word rhetorical question", "re": "(?:^|[.!?]\\s+|\\n)(?:The result|The catch|The truth|The reason|Why|The secret)\\?\\s"},
+    {"name": "post/video preamble", "re": "in this (post|video|article|thread)|today i('d| would) like to|let me (tell|walk) you"},
+    {"name": "empty trailing analysis", "re": ",\\s*(highlighting|underscoring|showcasing|reflecting|emphasizing|demonstrating) (the|its|how|a)\\b"},
+    {"name": "vague attribution", "re": "\\b(experts|researchers|observers|industry leaders) (say|believe|note|argue|agree)\\b|\\bmany (experts|people) (say|believe)\\b"}
+  ],
+  "triad": "\\b[a-z-]+, [a-z-]+,? (and|or) [a-z-]+\\b",
+  "hard": [
+    {"re": "\\bdelve\\w*", "why": "classic AI word"},
+    {"re": "\\btapestry\\b", "why": "AI metaphor"},
+    {"re": "\\bgame[- ]?chang\\w*", "why": "marketing cliche"},
+    {"re": "\\brevolutionar\\w*|\\brevolutioni[sz]\\w*", "why": "marketing cliche"},
+    {"re": "\\bin today'?s (fast[- ]paced|digital|ever[- ]changing|dynamic) (world|landscape|age)", "why": "cliche opener"},
+    {"re": "\\bin the (ever[- ]evolving|rapidly changing) (world|landscape) of", "why": "cliche opener"},
+    {"re": "\\bit'?s (important|worth) (to note|noting)", "why": "filler"},
+    {"re": "\\bunlock (the )?(power|potential|secrets?)", "why": "sales cliche"},
+    {"re": "\\bunleash\\w*", "why": "sales cliche"},
+    {"re": "\\bseamless\\w*", "why": "stock adjective"},
+    {"re": "\\bleverag(e|es|ed|ing)\\b", "why": "stock verb"},
+    {"re": "\\bcutting[- ]edge\\b|\\bstate[- ]of[- ]the[- ]art\\b", "why": "stock phrase"},
+    {"re": "\\bdive (deep )?into\\b|\\bdiving into\\b", "why": "stock opener"},
+    {"re": "\\bembark\\w*", "why": "AI verb"},
+    {"re": "\\btestament to\\b", "why": "AI phrase"},
+    {"re": "\\bin conclusion\\b|\\bto sum up\\b|\\bin summary\\b", "why": "empty summary"},
+    {"re": "\\bare you ready to\\b|\\bready to take .{0,20} to the next level", "why": "sales cliche"},
+    {"re": "\\bhave you ever wondered\\b|\\bimagine (a world|if)\\b", "why": "cliche hook"}
+  ],
+  "soft": [
+    {"re": "\\bcrucial\\w*"},
+    {"re": "\\bpivotal\\w*"},
+    {"re": "\\bvital\\w*"},
+    {"re": "\\brobust\\w*"},
+    {"re": "\\bcomprehensive\\w*"},
+    {"re": "\\bholistic\\w*"},
+    {"re": "\\bsynerg\\w*"},
+    {"re": "\\binnovative\\b"},
+    {"re": "\\bvibrant\\b"},
+    {"re": "\\blandscape\\b"},
+    {"re": "\\becosystem\\w*"},
+    {"re": "\\bmeticulous\\w*"},
+    {"re": "\\bintricate\\w*|\\bintricacies\\b"},
+    {"re": "\\bfoster(s|ed|ing)?\\b"},
+    {"re": "\\bshowcas(e|es|ed|ing)\\b"},
+    {"re": "\\bunderscor(e|es|ed|ing)\\b"},
+    {"re": "\\bplays? a (crucial|key|vital|pivotal) role"},
+    {"re": "\\bwhether you'?re\\b"},
+    {"re": "\\bgame changer\\b"},
+    {"re": "\\bfascinating\\b"},
+    {"re": "\\bamazing\\b|\\bincredible\\b"}
+  ]
+}

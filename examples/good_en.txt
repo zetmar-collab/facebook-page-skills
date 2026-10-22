@@ -1,0 +1,11 @@
+Stop keeping one chat open for a week.
+
+I tested this on my own account. After about 40 messages the assistant started mixing up facts from the start of the conversation. It was not lying. It simply ran out of room, and the oldest messages fell off first.
+
+New topic, new chat. That is the whole trick. It takes five seconds and saves me from re-checking half the answers.
+
+If something important was said early, paste it again at the start of the new chat.
+
+How long is your longest chat right now?
+
+#AIexplained

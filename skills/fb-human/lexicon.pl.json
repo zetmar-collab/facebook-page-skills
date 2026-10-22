@@ -1,0 +1,247 @@
+{
+  "version": "1.0",
+  "note": "Polish AI-tell lexicon (stems, because Polish inflects). 'hard' entries FAIL, 'soft' entries WARN when several appear. Regexes match lower-cased text. Edit freely.",
+  "greeting": "^(cześć|hej|witajcie|witam|dzień dobry)\\b",
+  "asks": [
+    "napisz(cie)? w komentarz",
+    "daj(cie)? znać",
+    "zostaw(cie)? (komentarz|opinię|łapkę)",
+    "zapisz (ten )?post",
+    "udostępnij",
+    "podziel się",
+    "kliknij",
+    "zajrzyj",
+    "sprawdź (na|link|stronę)",
+    "zobacz (na|więcej|link)",
+    "zaobserwuj",
+    "obserwuj",
+    "polub",
+    "link w komentarz",
+    "wyślij (mi )?(wiadomość|dm)",
+    "napisz do mnie",
+    "zadzwoń",
+    "zapisz się",
+    "oznacz (kogoś|znajomego)",
+    "skomentuj"
+  ],
+  "chat_remnants": [
+    "mam nadzieję,? że (to )?(pomoże|pomogło|się przyda)",
+    "^\\s*oczywiście[!,.]",
+    "masz rację",
+    "czy chcesz,? żebym",
+    "daj znać,? jeśli",
+    "oto (bardziej )?(szczegółowe|gotowy|twój)",
+    "jako (model|sztuczna inteligencja|asystent)",
+    "chętnie pomogę"
+  ],
+  "structure": [
+    {
+      "name": "negative parallelism",
+      "re": "\\bnie tylko\\b[^.!?\n]{0,80}\\b(ale|lecz)\\b|\\bto nie\\b[^.!?\n,]{0,50},\\s*(to|tylko|lecz|ale)\\b"
+    },
+    {
+      "name": "one-word rhetorical question",
+      "re": "(?:^|[.!?]\\s+|\n)[A-ZĄĆĘŁŃÓŚŹŻ][\\wąćęłńóśźż]{2,14}\\?\\s*(?:\n|$|[A-ZĄĆĘŁŃÓŚŹŻ])"
+    },
+    {
+      "name": "post/video preamble",
+      "re": "w tym (poście|wpisie|filmie|artykule|materiale)|w tej rolce|dziś (chciał(bym|abym)|opowiem|pokażę)|chciał(bym|abym) (się )?podzielić"
+    },
+    {
+      "name": "empty trailing analysis",
+      "re": ",\\s*(podkreślając|odzwierciedlając|ukazując|świadcząc o|co (podkreśla|pokazuje|świadczy))\\b"
+    },
+    {
+      "name": "vague attribution",
+      "re": "\\b(eksperci|badacze|specjaliści|obserwatorzy|wielu (ekspertów|specjalistów)) (twierdzą|zauważają|wskazują|uważają)\\b"
+    }
+  ],
+  "triad": "\\b[\\wąćęłńóśźż-]+, [\\wąćęłńóśźż-]+ (i|oraz|a także) [\\wąćęłńóśźż-]+\\b",
+  "hard": [
+    {
+      "re": "niesamowit\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "rewolucyj\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "game[- ]?changer\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "kompleksow\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "holistyczn\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "synergi\\w*",
+      "why": "stock marketing word"
+    },
+    {
+      "re": "innowacyjn\\w*",
+      "why": "stock praise word"
+    },
+    {
+      "re": "świetn\\w*",
+      "why": "stock praise word"
+    },
+    {
+      "re": "doskonał\\w*",
+      "why": "stock praise word"
+    },
+    {
+      "re": "rewelacyjn\\w*",
+      "why": "stock praise word"
+    },
+    {
+      "re": "w dzisiejszych czasach|w dzisiejszym (?:dynamicznym |szybko zmieniającym się )?świecie",
+      "why": "cliche opener"
+    },
+    {
+      "re": "w erze (?:cyfrow|sztucznej)\\w*",
+      "why": "cliche opener"
+    },
+    {
+      "re": "warto zauważyć",
+      "why": "cliche"
+    },
+    {
+      "re": "nie sposób przecenić",
+      "why": "cliche"
+    },
+    {
+      "re": "nie jest tajemnicą",
+      "why": "cliche"
+    },
+    {
+      "re": "jak wszyscy wiemy",
+      "why": "cliche"
+    },
+    {
+      "re": "należy pamiętać,? że|ważne jest,? aby zauważyć",
+      "why": "cliche"
+    },
+    {
+      "re": "pozwól,? że (?:ci )?opowiem",
+      "why": "cliche"
+    },
+    {
+      "re": "czy wiesz,? że",
+      "why": "cliche hook"
+    },
+    {
+      "re": "czy zastanawiał(?:eś|aś) się kiedyś",
+      "why": "cliche hook"
+    },
+    {
+      "re": "wyobraź sobie",
+      "why": "cliche hook"
+    },
+    {
+      "re": "fascynując\\w*",
+      "why": "cliche hook"
+    },
+    {
+      "re": "przygod\\w* z (?:ai|sztuczną)",
+      "why": "cliche hook"
+    },
+    {
+      "re": "mądrze wykorzystywa\\w*",
+      "why": "cliche hook"
+    },
+    {
+      "re": "ale spokojnie,? mam dla",
+      "why": "cliche hook"
+    },
+    {
+      "re": "to narzędzie zmieni",
+      "why": "cliche"
+    },
+    {
+      "re": "wyjątkow\\w+ możliwości",
+      "why": "cliche"
+    },
+    {
+      "re": "zanurz się|odkryj (?:moc|potencjał|tajemnice)|uwolnij (?:moc|potencjał)|odblokuj",
+      "why": "sales cliche"
+    },
+    {
+      "re": "podsumowując|w konkluzji|reasumując",
+      "why": "empty summary"
+    },
+    {
+      "re": "(?:daj|dajcie) znać w komentarzach",
+      "why": "chat residue"
+    }
+  ],
+  "soft": [
+    {
+      "re": "kluczow\\w+"
+    },
+    {
+      "re": "istotn\\w+"
+    },
+    {
+      "re": "fundamentaln\\w+"
+    },
+    {
+      "re": "niezwykle (?:ważn|istotn)\\w+"
+    },
+    {
+      "re": "odgrywa (?:kluczową|ważną|istotną) rolę|pełni rolę|stanowi (?:świadectwo|podstawę)|świadczy o"
+    },
+    {
+      "re": "podkreśla znaczenie|wpisuje się w (?:szerszy )?trend"
+    },
+    {
+      "re": "krajobraz \\w+"
+    },
+    {
+      "re": "ekosystem\\w*"
+    },
+    {
+      "re": "wielowymiarow\\w+|złożon\\w+"
+    },
+    {
+      "re": "skrupulatn\\w+|solidn\\w+"
+    },
+    {
+      "re": "zgłębi\\w+|zagłębi\\w+"
+    },
+    {
+      "re": "tkank\\w+|gobelin\\w*"
+    },
+    {
+      "re": "wartościow\\w+ spostrzeżeni\\w+"
+    },
+    {
+      "re": "niezaprzeczaln\\w+"
+    },
+    {
+      "re": "szeroki wachlarz|bogat\\w+ ofert\\w+"
+    },
+    {
+      "re": "wzbogaca\\w*|wzmacnia\\w*|sprzyja\\w*"
+    },
+    {
+      "re": "prezentuje|szczyci się"
+    },
+    {
+      "re": "eksploruj\\w*|odkrywaj\\w*"
+    },
+    {
+      "re": "kompleks\\w+"
+    },
+    {
+      "re": "w pigułce|na wyciągnięcie ręki"
+    },
+    {
+      "re": "pełen (?:wyzwań|możliwości)"
+    }
+  ]
+}
